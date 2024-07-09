@@ -1,15 +1,16 @@
-USE [Game];
-GO
 
-CREATE TABLE [dbo].[TProcedureError]
+
+
+CREATE TABLE TProcedureError
 (
-    ErrorID INT IDENTITY(1,1) PRIMARY KEY,
-    ErrorDateTime DATETIMEOFFSET DEFAULT SYSDATETIMEOFFSET(),
-    ErrorNumber INT,
-    ErrorSeverity INT,
-    ErrorState INT,
-    ErrorProcedure NVARCHAR(128),
-    ErrorLine INT,
-    ErrorMessage NVARCHAR(MAX)
+	ErrorUniqueID BIGINT NOT NULL PRIMARY KEY,
+	SPID SMALLINT NOT NULL,
+	[Procedure] NVARCHAR(128) NOT NULL,
+	ErrorTime DATETIMEOFFSET(7) NOT NULL,
+	ErrorNumber INT NOT NULL,
+	ErrorServerity INT NOT NULL,
+	ErrorState INT NOT NULL,
+	ErrorProcedure NVARCHAR(128) NOT NULL,
+	ErrorLine INT NOT NULL,
+	ErrorMessage NVARCHAR(4000) NOT NULL
 );
-GO
